@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<script>
+    var b = -203;
+    var a = 72;
+    function ede(c)
+    {
+        list.style.transform = "translate3d(" + `${b - a}` + "vw, 0px, 0px )"
+        b = b - a +c;
+    }
+
+    function ed(c)
+    {
+        list.style.transform = "translate3d(" + `${b + a}` + "vw, 0px, 0px )"
+        b = b + a+c;
+    }
+</script>
+
+
+
+<body onload="ee()">
+    <div class="header">
+        <button class="collapsible s" style="margin-left: 32.4vw;">Меню |</button>
+        <div class="s content " style="margin-left: 32.4vw; margin-top: 3vw; z-index: 1000;">
+        <ul>
+            <li><a href="#pizza">Пиццы</a></li>
+            <li><a href="#pizza">Бургеры</a></li>
+            <li><a href="#napitki">Напитки</a></li>
+            <li><a href="#snakes">Закуски</a></li>
+            <li><a>Акции!!</a></li>
+        </ul>
+        </div>
+        <p class="s" style="left:40.6vw">Статус заказа</p>
+        <p class="s" style="left:58.4vw">Контакты</p>
+        <p class="s" style="left:71.2vw">Вход</p>
+
+    </div>
+    <div class="wrapper">
+        <div class="list" style="z-index: 1;" >
+            <div id="list" class="pr">
+                <div class="image wws" id="img0" style="opacity: 0.8; background-color: white;"></div>
+                <div class="image" id="img1"></div>
+                <div class="image" id="img2"></div>
+                <div class="image" id="img3"></div>
+                <div class="image" id="img4"></div>
+                <div class="image" id="img5"></div>
+                <div class="image wws" id="img6" style="opacity: 0.8; background-color: white;"></div>
+
+            </div onload="list = document.getElementById('list')">
+
+        </div>
+
+        <div class="main">
+            <p class="ss" id="season">Хиты сезона!</p>
+
+            <div class="products">
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+            </div>
+
+            <div class="products">
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+            </div>
+
+            <p class="ss" id="pizza"> Пиццы</p>
+
+            <div class="products">
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+            </div>
+
+            <div class="products">
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+            </div>
+
+            <div class="products">
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+            </div>
+
+            <p class="ss" id="napitki"> Напитки</p>
+            <div class="products">
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+            </div>
+
+            <p class="ss" id="snakes"> Закуски</p>
+            <div class="products">
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+                <div class="product"><div class="okno"></div></div>
+            </div>
+            
+
+        </div>
+
+
+    </div>
+</body>
+
+<script>
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+        content.style.maxHeight = null;
+        } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        } 
+    });
+    }
+
+    function auf()
+    {
+        if(ccc == 1)
+        {
+            cleareLeft(ccc-1)
+        }
+        else if(ccc == 5)
+        {
+            cleareRight(ccc+1)
+        }
+    }
+    function cleareRight(a)
+    {
+        let ti = document.getElementById("img" + `${a}`);
+        ti.classList.remove("selectImage");
+        ti.outerHTML = ti.outerHTML
+    }
+
+    function cleareLeft(a)
+    {
+        let ti = document.getElementById("img" + `${a}`);
+        ti.classList.remove("selectImage");
+        ti.outerHTML = ti.outerHTML
+    }
+
+    function becomeLeft(a)
+    {
+        let ti = document.getElementById("img" + `${a}`);
+        ti.classList.add("selectImage");
+        ti.addEventListener('click', function(){
+            ed(0);
+           becomeLeft(a-1);
+           becomeRight(a+1);
+           cleareLeft(a);
+           cleareRight(a+2);
+           ccc = ccc - 1
+           auf()
+
+        },false);
+    }
+
+    function becomeRight(a)
+    {
+        let ti = document.getElementById("img" + `${a}`);
+        ti.classList.add("selectImage");
+        ti.addEventListener('click', function(){
+        
+           ede(0);
+           becomeRight(a+1);
+           becomeLeft(a-1);
+           cleareRight(a);
+           cleareLeft(a-2);
+           ccc = ccc + 1
+           auf()
+        },false);
+    }
+    becomeRight(4);
+    becomeLeft(2);
+    var ccc = 3;
+</script>
+</html>

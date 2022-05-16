@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    String.prototype.replaceAt = function(index, replacement) {
+        return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+    }
+
+    var Bin = function( s ){
+        s = unescape( encodeURIComponent( s ) );
+        var chr, i = 0, l = s.length, out = '';
+        for( ; i < l; i ++ ){
+            chr = s.charCodeAt( i ).toString( 2 );
+            while( chr.length % 8 != 0 ){ chr = '0' + chr; }
+            out += chr;
+        }
+        return out;
+    };
+
+    var Utf8 = function( s ){
+        var i = 0, l = s.length, chr, out = '';
+        for( ; i < l; i += 8 ){
+            chr = parseInt( s.substr( i, 8 ), 2 ).toString( 16 );
+            out += '%' + ( ( chr.length % 2 == 0 ) ? chr : '0' + chr );
+        }
+        return decodeURIComponent( out );
+    };
+
+
+    var encrypt = function(k,p) 
+    {
+
+        k = Bin(k)
+
+        p = Bin(p)
+
+        var m = p;
+
+        if(p.length > k.length)
+        {
+            var a1 = Math.floor(p.length / k.length) + 1;
+            var key = k.repeat(a1);
+            var plain = p;
+            key = key.slice(0, -1 * (plain.length - k.length));
+
+        }
+        else if(p.length < k.length)
+        {
+            var key =  k.slice(0, -1 * (p.length - k.length));
+            var plain = p;
+        }
+
+        var plain = p;
+
+        for(i = 0; i<plain.length; i++)
+        {
+
+            if(plain[i] == "1" && key[key.length - 1 - i] == "1")
+            {
+                m = m.replaceAt(i, "1")
+            }
+
+            if(plain[i] == "0" && key[key.length - 1 - i] == "1")
+            {
+                m = m.replaceAt(i, "0")
+            }
+
+            if(plain[i] == "1" && key[key.length - 1 - i] == "0")
+            {
+                m = m.replaceAt(i, "0")
+            }
+
+            if(plain[i] == "0" && key[key.length - 1 - i] == "0")
+            {
+                m = m.replaceAt(i, "1")
+            }
+
+        }
+
+        return m
+
+    }
+
+    var decrypt = function(k,m) 
+    {
+
+        k = Bin(k)
+
+        var d = m;
+
+        if(m.length > k.length)
+        {
+            var a1 = Math.floor(m.length / k.length) + 1;
+            var key = k.repeat(a1);
+            var message = m;
+            key = key.slice(0, -1 * (message.length - k.length));
+
+        }
+        else if(m.length < k.length)
+        {
+            var key =  k.slice(0, -1 * (m.length - k.length));
+            var message = m;
+        }
+
+
+        for(i = 0; i<message.length; i++)
+        {
+
+            if(message[i] == "1" && key[key.length - 1 - i] == "1")
+            {
+                d = d.replaceAt(i, "1")
+            }
+
+            if(message[i] == "0" && key[key.length - 1 - i] == "1")
+            {
+                d = d.replaceAt(i, "0")
+            }
+
+            if(message[i] == "0" && key[key.length - 1 - i] == "0")
+            {
+                d = d.replaceAt(i, "1")
+            }
+
+            if(message[i] == "1" && key[key.length - 1 - i] == "0")
+            {
+                d = d.replaceAt(i, "0")
+            }
+
+        }
+
+        return Utf8(d)
+
+    }
+
+</script>
+<body>
+    
+</body>
+</html>

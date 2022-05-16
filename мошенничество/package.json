@@ -1,0 +1,19 @@
+{
+  "name": "abc",
+  "version": "1.0.0",
+  "description": "messanger",
+  "main": "index.js",
+  "dependencies": {
+    "electron": "^14.0.0",
+    "electron.js": "0.0.1",
+    "g": "^2.0.1",
+    "socket.io": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Nariman",
+  "license": "ISC"
+}

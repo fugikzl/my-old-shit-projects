@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0 0 0;
+        margin: 0 0;
+    }
+    body{
+        background-image: url("./2-NIS.png");
+        background-size: 30%;
+    }
+
+    .ot{
+        height:90vh;
+        width:63.636363vh;
+        border: 1px black solid;
+        margin: 0 auto;
+        background-color:rgb(250, 239, 218);
+        position: absolute;
+        margin-left: 36vw;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .pole
+    {
+        width: 36vw;
+        height: 18vw;
+        position: absolute;
+        background-color: white;
+        overflow: scroll;
+        overflow-y:hidden;
+        display: flex;
+        align-items: flex-start;
+        z-index: 1000;
+
+        
+    }
+
+    .im{
+        height: 15vw;
+        position: relative;
+        flex: 0 0 auto;
+        margin-left: 2vw;
+        margin-top: 1vw;
+        background-image: url("nfc/1\ \(3\).png");
+        background-size: contain;
+}
+
+    .imag {
+        flex: 0 0 auto;
+        margin-left: 2vw;
+        margin-top: 2.5vw;
+        }
+
+    .edit{
+        
+        position: absolute;
+        z-index: 500; 
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .podEdit{
+        width: 3vw;
+        height: 3vw;
+        position: absolute;
+        z-index: 500;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .lightgreen{
+        background-color: lightgreen;
+    }
+
+    .white{
+        background-color: white;
+    }
+
+    .wheat{
+        background-color: wheat;
+    }
+
+    .lightblue{
+        background-color: lightblue;
+    }
+
+    .color{
+        height:4vw;
+        width:4vw;
+        border: black solid 1px;
+        border-radius: 50%;
+        position: absolute;
+        right:1vw;
+        position: relative;
+        flex: 0 0 auto;
+        margin-left: 1vw;
+    }
+
+    .palitra
+    {
+        width: 15vw;
+        position: absolute;
+        display: flex;
+        align-items: flex-start;
+        margin-left: calc(63.636363vh + 37vw);
+    }
+
+    .input
+    {
+        width:19vw;
+        height: 2.5vw;
+        position: absolute;
+        margin-left: calc(63.636363vh + 37vw);
+        margin-top: 5vw;
+        font-size: large;
+    }
+    .inpbut{
+        margin-left: calc(63.636363vh + 37vw + 4.75vw);
+        margin-top: 8.5vw;
+        width: 9.5vw;
+        height: 3vw;
+        border-radius: 50px;
+        position: absolute;
+        background-color: aqua;
+        border: 1px black solid;
+    }
+   
+
+
+    
+</style>
+
+<script type="text/javascript" src="./index.js"></script>
+
+
+<body onload="begin()">
+    <div class="palitra">
+        <div class="color white" onclick="lalalal.style.backgroundColor ='white' "> </div>
+        <div class="color wheat" onclick="lalalal.style.backgroundColor ='wheat' "> </div>
+        <div class="color lightgreen" onclick="lalalal.style.backgroundColor ='lightgreen' "> </div>
+        <div class="color lightblue" onclick="lalalal.style.backgroundColor ='lightblue' "> </div>
+    </div>
+
+    <div class="ot" onclick="" id="lalalal">
+    </div>
+
+    <div class="pole" id="pole1" >
+        
+    </div>
+
+    <div class="pole" id="pole2" style="margin-top: 18vw">
+        
+    </div>
+
+    <input class="input" id="input">
+    <div class="inpbut" onclick="inputText()"></div>
+
+    <div id="podP0"> </div>
+    <div id="podM0"> </div>
+    <div id="podX0"> </div>
+
+</body>
+<script>
+    var j = 0;
+
+    var abc0 = "podP0";
+
+    var abc1 = "podM0";
+
+    var abc2 = "podX0";
+
+
+    var pointerX = -1;
+    var pointerY = -1;
+    document.onmousemove = function(event) {
+        pointerX = event.pageX;
+        pointerY = event.pageY;
+    }
+    setInterval(pointerCheck, 1000);
+    function pointerCheck() {
+    }
+    
+    function inputText()
+    {
+        let text = input.value;
+        console.log(text);
+        input.value = null;
+
+    }
+
+    function begin()
+    {
+        for(i = 0; i < 13; i++)
+        {
+            let sosssos = document.createElement("img");
+            sosssos.classList.add("imag")
+            sosssos.height = "150";
+            sosssos.src = "nfc/1 (" + `${i + 1}` + ").png"
+            sosssos.id = `${i + 1}`;
+            sosssos.onmousedown= function(){addEdit(this.id, 1)};
+            document.getElementById("pole1").appendChild(sosssos);
+        }
+
+        for(i=0; i< ich.length; i = i + 2)
+        {
+            let sosssos = document.createElement("img");
+            sosssos.classList.add("imag")
+            sosssos.height = "150";
+            sosssos.src = ich[i+1];
+            sosssos.id = `${i + 1}`;
+            sosssos.onmousedown= function(){addEdit(this.id, 2, sosssos.src)};
+            document.getElementById("pole2").appendChild(sosssos);
+        }
+    }
+
+
+    function hideAllPods()
+    {
+        let kamon = document.getElementsByClassName("podEdit")
+        for(k=0; k < kamon.length; k++)
+        {
+            document.getElementById("podP" + `${(k + 1)}`).style.visibility = "hidden";
+            document.getElementById("podM" + `${(k + 1)}`).style.visibility = "hidden";
+        }
+    }
+
+    function addEdit(id, variant, kasha)
+    {
+        let newEdit = document.createElement("img");
+        newEdit.classList.add("edit");
+
+        if(variant == 1)
+        {
+        newEdit.src = "nfc/1 (" + `${id * 1}` + ").png";
+        }
+        else if(variant == 2)
+        {
+            console.log(kasha);
+            newEdit.src = kasha;
+        }
+        newEdit.height = "150";
+
+        newEdit.id = "edit" + `${j+1}`;
+        j = j + 1;
+
+        let uuu = j;
+
+        
+
+        let listener = function(e) {
+        let podP = document.getElementById("podP" + `${uuu}`);
+        let podM = document.getElementById("podM" + `${uuu}`);
+        let podX = document.getElementById("podX" + `${uuu}`);
+        podP.style.left = e.pageX -  pole1.offsetWidth - document.getElementById("edit" + `${uuu}`).offsetWidth / 2 + "px";
+        podP.style.top = e.pageY - document.getElementById("edit" + `${uuu}`).offsetHeight / 1.5 + "px";
+        podM.style.left = e.pageX -  pole1.offsetWidth - document.getElementById("edit" + `${uuu}`).offsetWidth / 2 + document.getElementById("podP" + `${uuu}`).offsetWidth + "px";
+        podM.style.top = e.pageY - document.getElementById("edit" + `${uuu}`).offsetHeight / 1.5 + "px";
+        podX.style.left = e.pageX -  pole1.offsetWidth - document.getElementById("edit" + `${uuu}`).offsetWidth / 2 + document.getElementById("podP" + `${uuu}`).offsetWidth*2 + "px";
+        podX.style.top = e.pageY - document.getElementById("edit" + `${uuu}`).offsetHeight / 1.5 + "px";
+        newEdit.style.left = e.pageX - document.getElementById("edit" + `${uuu}`).offsetWidth / 2 - pole1.offsetWidth + "px" ;
+        newEdit.style.top = e.pageY -  document.getElementById("edit" + `${uuu}`).offsetHeight / 2 + "px";
+        };
+
+        newEdit.addEventListener('mousedown', e => {
+            document.getElementById(abc0).style.visibility = "hidden";
+            document.getElementById(abc1).style.visibility = "hidden";
+            document.getElementById(abc2).style.visibility = "hidden";
+            
+            
+            let podP = document.getElementById("podP" + `${uuu}`);
+            let podM = document.getElementById("podM" + `${uuu}`);
+            let podX = document.getElementById("podX" + `${uuu}`);
+
+            
+            abc0 = "podP" + `${uuu}`;
+            abc1 = "podM" + `${uuu}`;
+            abc2 = "podX" + `${uuu}`;
+
+            podP.style.visibility = "visible";
+            podM.style.visibility = "visible";
+            podX.style.visibility = "visible";
+            document.addEventListener('mousemove', listener);
+        });
+
+        newEdit.addEventListener('mouseup', e => {
+            
+            document.removeEventListener('mousemove', listener);
+        });
+
+
+        newEdit.ondragstart= function(){return false}
+
+
+        lalalal.appendChild(newEdit);
+
+        createPodEdit(j);
+
+ 
+    }
+
+    function createPodEdit(id)
+    {
+        let podEditP = document.createElement("div");
+        podEditP.classList.add("podEdit");
+        podEditP.id= "podP" + `${id}`;
+
+        let plus = document.createElement("p");
+
+        plus.textContent = "+";
+        plus.style.fontSize = "3vw";
+        plus.style.margin = "0 auto";
+        plus.style.fontWeight = "1000"
+
+        podEditP.unselectable = "on";
+
+        podEditP.onclick = function()
+        {
+            document.getElementById("edit" + id).height = document.getElementById("edit" + id).height*1 + 15;
+        }
+
+        if(j > 1) 
+        {
+            podEditP.style.visibility = "hidden"
+        }
+
+        
+        podEditP.appendChild(plus);
+        document.getElementById("lalalal").appendChild(podEditP);
+
+        let podEditM = document.createElement("div");
+        podEditM.classList.add("podEdit");
+        podEditM.id= "podM" + `${id}`;
+
+        podEditM.onclick = function()
+        {
+            document.getElementById("edit" + id).height = document.getElementById("edit" + id).height*1 - 15;
+        }
+
+        podEditM.unselectable = "on";
+
+        let minus = document.createElement("p");
+
+
+        if(j > 1) 
+        {
+            podEditM.style.visibility = "hidden"
+        }
+
+        minus.style.fontSize = "3vw";
+        minus.style.margin = "0 auto";
+        minus.style.fontWeight = "1000"
+        minus.textContent = "-";
+
+
+        
+        podEditM.appendChild(minus);
+        
+        document.getElementById("lalalal").appendChild(podEditM);
+
+        let podEditX = document.createElement("div");
+        podEditX.classList.add("podEdit");
+        podEditX.id= "podX" + `${id}`;
+
+        podEditX.onclick = function()
+        {
+            document.getElementById("edit" + id).parentNode.removeChild( document.getElementById("edit" + id));
+            podEditX.parentNode.removeChild(podEditX);
+            document.getElementById("podP" + `${id}`).parentNode.removeChild(document.getElementById("podP" + `${id}`));
+            document.getElementById("podM" + `${id}`).parentNode.removeChild(document.getElementById("podM" + `${id}`));
+            abc0 = "podP0";
+            abc1 = "podM0";
+            abc2 = "podX0";
+        }
+
+        podEditX.unselectable = "on";
+
+        let X = document.createElement("p");
+
+
+        if(j > 1) 
+        {
+            podEditX.style.visibility = "hidden"
+        }
+
+        X.style.fontSize = "3vw";
+        X.style.margin = "0 auto";
+        X.style.fontWeight = "1000"
+        X.textContent = "x";
+
+
+        
+        podEditX.appendChild(X);
+        
+        document.getElementById("lalalal").appendChild(podEditX);
+
+
+    }
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,22 @@
+body{
+    display: grid;
+    position:absolute;
+    grid-template-areas: "chart chart chart"
+                         "... button button"
+                         "... math math"
+                         "... math math"
+                         
+}
+.form{
+    grid-area: form;
+}
+
+#myChart{
+    grid-area: chart;
+}
+.math{
+    grid-area: math;
+}
+#button1{
+    grid-area: button;
+}

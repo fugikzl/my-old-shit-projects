@@ -1,0 +1,155 @@
+*{
+    padding: 0 0;
+    margin: 0 0;
+}
+
+body{
+    overflow-x:hidden;  
+    height: 100%;
+}
+
+.header{
+    width: 100vw;
+    height: 8.519vw;
+    background-image: url("./header.png");
+    background-size: cover;
+}
+
+.list{
+    width: 100vw;
+    height: 22vw;
+    margin-top: 4vw;
+    display: flex;
+    transform: translate3d(0px, 0px, 0px );
+    overflow: hidden;
+}
+
+.pr{
+    display: flex;
+    align-items: flex-start;
+    transition: transform 300ms ease-out 0s;
+    transform: translate3d(-203vw, 0px, 0px );
+
+}
+
+.image{
+    width: 70vw;
+    margin: 0 auto;
+    height: 22vw;
+    background: blue;
+    border-radius: 2vw; 
+    position: relative;
+    flex: 0 0 auto;
+    margin-left: 2vw;
+}
+
+.selectImage
+{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.wws{
+    background-image: url("./image.png");
+    background-size: cover;
+}
+
+.main{
+    width: 75.187vw;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    margin-top:2vw;
+}
+
+.footer
+{
+    background: blue;
+    flex: 0 0 auto;
+    flex-flow: column nowrap;
+    display: flex   ;
+}
+
+.wrapper{
+    display: flex;
+  flex-direction: column;
+
+  height: 100%;
+}
+
+
+.s{
+    font-family:bahnschrift;
+    top:3.8vw;
+    font-weight: 800;
+    font-size: 2.5vw;
+    position: absolute;
+}
+
+.ss{
+    font-family:bahnschrift;
+    font-weight: 800;
+    font-size: 2.5vw;
+    margin-top: 2vw;
+}
+
+.products{
+    height: 23.296vw;
+    width: 75.187vw;
+    display: flex;
+    margin-top: 3.5vw;
+
+}
+
+.okno{
+    height:16.296vw;
+    width:16.296vw;
+    background: hotpink;
+    border-radius: 1vw;
+}
+
+.product{
+    height:23.296vw;
+    width:16.296vw; 
+    background: gray;
+    border-radius: 1vw; 
+    position: relative;
+    flex: 0 0 auto;
+    margin-left: 2vw;
+}
+
+.imgdes{
+    font-family: bahnschrift;
+}
+
+.collapsible {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    width: 10vw;
+    border: none;
+    text-align: left;
+    outline: none;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    width: 10vw;
+    transition: max-height 0.2s ease-out;
+    background-color: #ffffff;
+    font-size: 1vw;
+    border-radius: 10px;
+  }
+
+  li{
+      padding: 0.1vw 0.1vw;
+  }
+
+  a{
+      text-decoration: none;
+      color: black;
+  }

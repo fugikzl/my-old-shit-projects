@@ -1,0 +1,254 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #2d3436;
+    width:100%;
+
+  }
+  .middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+.btn{
+    position: relative;
+    display: block;
+    color: white;
+    font-size: 250%;
+    font-family: "montserrat";
+    text-decoration: none;
+    margin: 5% 0;
+    border: 3px solid #cc8800;
+    padding: 6% 180px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 1s all ease;
+  }
+  .btn::before{
+    background: #cc8800;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+    z-index: -1;
+    transition: all 3s ease;
+  }
+
+  
+  .btn1::before{
+    width: 0%;
+    height: 100%;
+  }
+  
+  .btn1:hover::before{
+    width: 100%;
+  }
+  
+  
+  .btn2::before{
+    width: 100%;
+    height: 0%;
+  }
+  .btn2:hover::before{
+    height: 100%;
+  }
+  
+  .btn3::before{
+    width: 100%;
+    height: 0%;
+    transform: translate(-50%,-50%) rotate(45deg);
+  }
+  .btn3:hover::before{
+    border: black 5px solid;
+
+    height: 380%;
+  }
+  
+  .btn4::before{
+    width: 100%;
+    height: 0%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+  }
+  .btn4:hover::before{
+    height: 380%;}
+
+    .red{
+        width:100%; height:100%; background-color: white; position: absolute; z-index: 100; display: none;
+}
+
+.n{
+    animation: change 2s linear forwards;
+    display: block;
+}
+
+@keyframes change {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .main{
+    background-color: #2d3436; height: 768px; width: 100%; display: none; 
+
+  }
+
+.mainchange{
+    animation: tonload 5s linear forwards;
+    display: inline-block;
+    height: 100%;
+    margin: 0 auto;
+    background: url("./unnamed.png");
+    background-size: 30%;
+    position: absolute;
+
+}
+@keyframes tonload {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .wrapper{
+      width:50%;
+      background-color: grey;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0;
+      display: block;
+      background: url("./555.png");
+      background-size: 80%;
+
+  }
+
+  .question{
+      height:15%;
+      border:2px black solid;
+      margin: 0 auto;
+      background-image: url("Tima.png");
+      box-shadow:0 0 10px yellow;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      }
+    .question p{
+        font-size: 35px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .answer{
+        height: 50% ; 
+        position: relative;
+        top:5%;
+        width:65%;
+        margin: 0 auto;
+    }
+
+    .A1{
+        margin-top:5%;
+        height:23%;
+        width:100%;
+        border-radius: 25px  ;
+        background-color: ivory;
+        border: 2px black solid;
+        box-shadow:0 0 10px yellow;
+        background-image: url("Tima.png");
+    }
+
+    .FullSc{
+      border:2px solid #cc8800;
+      height: 5.22%;
+      width: 17.569%;
+      float:right;
+      text-align: center;
+      justify-content: center;
+      background: grey;
+      
+    }
+    .FullSc p{
+      color: white;
+      font-size: xx-large;
+      margin: 0 auto;
+    }
+
+    .FullSc:hover{
+      background-color: darkslategray;
+      border: yellow 2px solid;
+    }
+
+    .TimaC{
+      width:90%;
+      height:44.736%;
+      background: url("TimaC.png");
+      background-size: 100%;
+      position: absolute;
+      visibility: visible;
+        }
+
+    .side{
+      width:25%;
+      height:100%;
+      position: absolute;
+    }
+    .TimaO{
+      width:90%;
+      height:44.736%;
+      background: url("TimaO.png");
+      background-size: 100%;
+      position: absolute;
+      visibility: visible;
+
+        }
+      .txt{
+        font-family: 'Mortal Kombat 4';
+      }
+
+      .left{
+        float: left;
+      }
+
+      .right{
+        float: right;
+        right:0;
+        top:0;
+      }
+      .score{
+        width: 100%; 
+        background:grey;
+        padding: 0 0;
+        margin:0 0 auto;
+        margin-top: 1%;
+      }
+
+      .score:hover{
+        background: darkolivegreen;
+      }
+      .redLine{
+        width:100%;
+        height:1.4%;
+        background: darkred;
+        margin:0 0 auto;
+        position: relative;
+      }
+
+      .start{
+        background:url('./mortal.png'); 
+        left:50%; margin-left:-150px ;
+        position: absolute; top:50%; 
+        margin-top: -150px;
+        width:300px;
+        height:300px; 
+        border-radius: 150px;
+        background-size:65%; 
+        background-color:black; ;
+      }
+
+      .start:hover{
+        background-color: darkred;
+      }

@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js">
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <link rel="shortcut icon" href="baglog.png" type="image/png"> <link rel="stylesheet" href="moy.css">
+</head>
+
+<body>
+    <canvas id="myChart" width="600" height="600"></canvas>
+    <form class="math">
+        <label>По убыванию</label>
+        <label id="sbi" style="border:solid 1px black;"></label><br>
+        <label>По возрастанию</label>
+        <label id="sbl" style="border:solid 1px black;"></label><br>
+        <label>Мода</label>
+        <label id="moda" style="border:solid 1px black;"></label><br>
+        <label>Медиана</label>
+        <label id="med" style="border:solid 1px black;"></label><br>
+        <label>Размах</label>
+        <label id="razmah" style="border:solid 1px black;"></label><br>
+        <label>Среднее значение</label>
+        <label id="srd" style="border:solid 1px black;"></label><br>
+        <label>Среднее математическое ожидание</label>
+        <label id="smo" style="border:solid 1px black;"></label><br>
+        <label>Дисперсия</label>
+        <label id="disp" style="border:solid 1px black;"></label><br>
+    </form>
+    <button value="Submit" id="button1" onclick="window.location.reload()">Рестарт</button>
+    <script>
+        var dat = prompt("Введите массив чисел");
+        dat = dat.split(' ')
+        var ctx = document.getElementById('myChart');
+        var labels = new Array;
+        var datar = new Array;
+        var geek=0;
+        var voz= new Array;
+        var m1=0;
+        var m2=0;
+        var disp=0;
+
+        dat.sort(function (a, b) {
+            return b - a
+        })
+        document.getElementById('sbi').innerHTML = dat;
+        dat.sort(function (a, b) {
+            return a - b
+        })
+        document.getElementById('sbl').innerHTML = dat;
+
+        var count = 0;
+        var med=0;
+        var sred=0;
+        var good=0;
+        var razmah=0;
+        function defining() {
+            for (let i = 0; i < dat.length; i++)
+                if (dat[i] != dat[i + 1]) {
+                    labels.push(dat[i])
+                }
+        }
+        defining()
+
+
+        for (let i = 0; i < labels.length; i++) {
+            datar.push(dat.filter(x => x == labels[i]).length);
+        }
+        var moda= new String();
+        var moda= Math.max.apply(null,datar)
+        moda =labels[datar.indexOf(moda)]
+
+
+        if(dat.length%2==0){
+            med=(Number(dat[dat.length/2])+Number(dat[(dat.length/2)-1]))/2
+        }
+        else if(dat.length%2==1){
+            med=dat[Math.round(dat.length/2)-1];
+        }
+
+        for(let i=0; i<labels.length; i++){
+            good=Number(datar[i])*Number(labels[i]);
+            sred=Number(sred)+Number(good);
+        };
+        geek=sred;
+        sred=sred/Number(dat.length);
+
+        razmah= Number(labels[labels.length-1])-Number(labels[0]);
+
+        for(let i=0; i<labels.length;i++){
+            voz.push(datar[i]/dat.length);
+        }
+
+        for(let i=0; i<labels.length;i++){
+            m1=Number(labels[i])*Number(voz[i])+m1;
+            m2= (Number(labels[i])**2)*Number(voz[i])+m2;
+        };
+        disp=m2- m1**2;
+        document.getElementById('smo').innerHTML=m1;
+        document.getElementById('disp').innerHTML=disp;
+        document.getElementById('razmah').innerHTML=razmah;
+        document.getElementById('srd').innerHTML=sred;
+        document.getElementById('med').innerHTML=med;
+        document.getElementById('moda').innerHTML= moda;
+        var ggg = ['rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+        ];
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                        label: "бар",
+                        data: datar,
+                        type: 'bar',
+                        backgroundColor: ggg,
+                        borderColor: ggg,
+                        borderWidth: 1
+                    },
+                    {
+                        label: "линия",
+                        data: datar,
+                        type: 'line',
+                        backgroundColor: [''],
+                        borderColor: ['rgba(75, 192, 192, 0.8)'],
+                        fill: false,
+                        pointBackgroundColor: 'gray',
+                        lineTension: 0,
+                        order: 2
+                    },
+                    {
+                        label: "точки",
+                        data: datar,
+                        type: 'line',
+                        backgroundColor: [''],
+                        borderColor: ['rgba(75, 192, 192, 0.0)'],
+                        fill: false,
+                        pointBackgroundColor: 'gray',
+                        lineTension: 0,
+                        order: 2
+                    }
+                ]
+            },
+            options: {}
+        });
+    </script>
+</body>
+
+</html>

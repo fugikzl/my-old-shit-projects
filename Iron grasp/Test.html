@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="styles.css">
+    <style>body{background:black;} </style>
+    </head>
+    <script>
+        var ThemeSong = new Audio('Theme.mp3');
+        ThemeSong.volume = 0.25;
+
+        function ThemeStop()
+        {
+            if (ThemeSong.volume == 0.25)
+            {
+                ThemeSong.volume = 0;
+            }
+            else
+            {
+                ThemeSong.volume = 0.25;
+            }
+
+        }
+
+        function ThemeMus()
+        {
+            ThemeSong.play();
+            setInterval(()=>{ThemeSong.currentTime = 0} , 210000);
+        }
+
+        function fullscreen3(element) 
+        {
+            if(window.innerHeight !== screen.height)
+            {
+                if(element.requestFullScreen) 
+                {
+                element.requestFullScreen();
+                }  
+                else if(element.mozRequestFullScreen)
+                {
+                element.mozRequestFullScreen();
+                } 
+                else if(element.webkitRequestFullScreen) 
+                {
+                element.webkitRequestFullScreen();
+                }
+                console.log("ef");
+            }
+    
+            else if(window.innerHeight == screen.height)
+            {
+                if(element.requestFullScreen) 
+                {
+                document.exitFullscreen();
+                }  
+                else if(element.mozRequestFullScreen)
+                {
+                document.mozCancelFullScreen();
+                } 
+                else if(element.webkitRequestFullScreen) 
+                {
+                document.webkitCancelFullScreen();
+                }
+            }
+    
+        }
+    </script>
+    <body id="body"onload="  ">
+    <div id="start" class="start" onclick="tonload(); ThemeMus(); body.style.background = 'white'; start.style.visibility='hidden';" ></div>
+    <div id = "main" class="main">
+        <div class="side left">
+            <div id="TimaO" class="TimaO"></div>
+            <div id="TimaC" class="TimaC"></div>
+        </div>
+
+
+        <div id = "hui"class="wrapper">
+            <div class="question">
+           <p>Сколько стоит</p>
+            </div>
+            <div class="answer">
+                <div class="A1">
+
+                </div>
+                <div class="A1">
+                    
+                </div>
+                <div class="A1">
+                    
+                </div>
+                <div class="A1">
+                    
+                </div>
+
+            </div>
+
+    
+            
+            <div style="top:15%; position:relative; background-color:khaki; border:1px black solid; height: 7%; bottom:0; ">
+                <marquee behavior="scroll"><img style="height:55px;"src="123.jpg"></marquee> 
+            </div>
+        </div>
+
+        
+        <div class="side right">
+
+            <div class="FullSc" onclick="fullscreen3(document.documentElement);">
+                <p>F11</p>
+            </div>
+    
+            <div class="FullSc"  onclick="ThemeStop()">
+                <p>Vol</p>
+            </div>
+
+            <div class="redLine" style="margin-top: 11.22%;" ></div>
+            <div>
+                <img src="Score.png" class="score" >
+            </div>
+            <div class="redLine"></div>
+
+            <div>
+                <img src="Score/0.png" class="score">
+            </div>
+            <div class="redLine"></div>
+
+
+        </div>
+        
+    </div>
+    
+    </body>
+    <script>
+        function launchFullScreen(element) 
+        {
+             if(element.requestFullScreen) {
+             element.requestFullScreen();
+            } else if(element.mozRequestFullScreen) {
+              element.mozRequestFullScreen();
+             } else if(element.webkitRequestFullScreen) {
+              element.webkitRequestFullScreen();
+             }
+        }
+
+        function talk()
+        {
+           let inter = setInterval(() => 
+            {
+                if(TimaC.style.visibility == "visible" )
+                { 
+                    TimaC.style.visibility = "hidden";
+                }
+                else{
+                    TimaC.style.visibility = "visible";
+                }
+            }, 200);
+
+            setTimeout(() => {
+                clearInterval(inter);
+                TimaC.style.visibility = "visible";
+            }, 3000);
+        }
+        
+        function tonload(){
+            document.getElementById("main").classList.add("mainchange");
+        }
+        setTimeout
+        document.getElementById("main").offsetWidth  = document.getElementById('body').offsetWidth;
+
+
+        //var Interv = setInterval(
+          //  () => 
+            //{
+              //  main.style.width = document.getElementById('111').offsetWidth; 
+                //main.style.height = document.getElementById('111').offsetHeight;
+            //},
+              //1000  )
+    </script>
+</html>

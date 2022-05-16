@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<head>
+	<meta charset = "UTF-8">
+	<title>MATH</title>
+	<style>.Alertnahui{
+    width:500px;
+    height:500px;
+    left:50%;
+    margin-right:-50%;
+    position: relative;
+    transform: translate(-50%);
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:5;
+    visibility: hidden;
+    border: solid 5px black;
+}
+body{
+    height:100%;    
+    width:100%;
+    background-image:url("back.png") ;
+}
+.closesuka{
+    width:54px;
+    height: 108px;
+    background-color: blue;
+    position: fixed;
+    display: block;
+    z-index:999999;
+    margin-left:0px;
+    visibility: hidden;
+    margin: right;
+ }
+
+.close{
+    background-image:url("close.png");
+    width:50px;
+    height:50px;
+    background-color: blue;
+    border: black 2px solid;
+}
+
+.refresh{
+    background-image:url("refresh.png");
+    width:50px;
+    height:50px;
+    background-color: blue;
+    border: black 2px solid;
+}
+.math{
+    width:300px;
+    height:300px;
+    background-color: coral;
+    border: black 3px solid;
+    position: absolute;
+}
+.nu{
+    font-size: xxx-large;
+}
+.way{
+    font-size: x-large;
+}
+
+.TextContent{
+    background-color: white;
+}
+table td{
+    padding: 5px 10px;
+    border: 1px black solid;
+    background-color: ivory;
+  }
+
+  .loh{
+    padding: 10px 20px;
+    border: 1px black solid;
+    background-color: ivory;
+  }</style>
+</head>
+
+<body onload="nu40pognali()" >
+
+	<script>
+		var input = document.getElementById('input');	
+		var mm = 0;
+		var answer;
+		var abc = [];
+		def = [];
+		var pi = 0;
+
+		input.onkeypress = inputing();
+
+		function compareNumbers(a, b) {
+  		return a - b;
+		}
+
+		function hf()
+		{
+			let hook = hr.value.split("; ");
+			let p = hook.sort(compareNumbers);
+			console.log(p);
+			dat = hr.value.split("; ");
+			dat.sort(function (a, b) {
+            return b - a
+      		  })
+       		 dat.sort(function (a, b) {
+         	 return a - b
+       		 })
+			let datar = [];
+			for (let i = 0; i == p.length; i++) {
+			datar.push(dat.filter(x => x == p[i]).length);}
+			console.log(datar);
+
+			for(let i = 0 ; i < p.length; i++)
+			{
+				var sum = "0";
+				sum = sum + p[i];
+
+			}
+			console.log(p);
+			console.log(sum);
+			console.log(sum/p.length);
+        }
+
+
+		
+
+		function inputing()
+		{
+			console.log(event.keyCode);
+		}
+
+
+		function addingExpress()
+		{
+			def.push(ex.value)
+			chlen.textContent = ` ${chlen.textContent}` + `${def[pi]}` + 'x'.repeat(pi);
+			pi = pi + 1;
+			ex.value = null;
+		}
+
+		function Express(a,b)
+		{
+			console.log(b);
+			let kof = a.split(" ");
+			console.log(kof);
+			let kaf = [];
+			kaf[0] = kof[0];
+			for(let i = 1; i < kof.length; i++)
+			{
+				kaf[i] = (parseFloat(kaf[i-1]) *  parseFloat(b) +  parseFloat(kof[i])).toFixed(4);
+			}
+			gorner.value = null;
+			gornx.value = null;
+			answer = "";
+			for(let i = 0; i < kaf.length; i++)
+			{
+				answer = "X = " + b; //answer = answer + '|' + kaf[i] +'| '; 
+			}
+			showanswer();
+
+			var blok = document.getElementById("Alertnahui");			
+				columns = kaf.length;
+  				rows = 2;
+			  	parent = blok;
+				var table = document.createElement("table");
+			  for(let i =0 ; i < rows; i++)
+			  {
+			  var tr = document.createElement("tr");
+			  	for(let j =0 ; j < columns; j++)
+			    {
+				var td = document.createElement("td");
+				td.textContent = kof[j];
+			    table.appendChild(td);
+				}
+				kof = kaf;
+  			  table.appendChild(tr);
+			  }
+ 			 parent.appendChild(table);
+
+
+			
+		}
+
+		function test()
+		{
+			var koef = xn.value.split(" ");
+			for(let j = koef.length, o = 0; o < koef.length; o++)
+			{
+				j = j - 1;
+				abc.push(koef[j])	
+			}
+			var num = abc[0];	
+			var num2 = abc[abc.length - 1];
+			var arr = [];
+			var arr2 = [];
+			if(num < 0)
+			{num = num * -1;}
+			for (let i = 1; i <= num; i++) {
+			  
+				if (num % i == 0) 
+				{
+					arr.push(i);
+					arr.push(i * -1);
+				}
+			}	
+			
+			if(num2 < 0)
+			{num2 = num2 * -1;}
+			for (let i = 1; i <= num2; i++) {
+			  
+				if (num2 % i == 0) 
+				{
+					arr2.push(i);
+				}
+			}	
+
+			console.log(arr2);
+
+			var root = [];
+			for(h = 0; h < arr2.length; h++)
+			{for(let i = 0; i < arr.length; i++)
+			{
+				let nka = `${arr[i]}` / `${arr2[h]}`;
+				root.push(nka.toFixed(4));
+			}
+		}
+			
+			console.log(root);
+			
+			let roots = [];
+
+			console.log(root.length);
+			console.log(abc.length);
+
+
+			for(let i=0 ; i < root.length; i++)
+			{
+				let plussing = [];
+				let gro = 0;
+				for(let k=0; k < abc.length; k++)
+				{	
+					gro = gro + abc[k] * Math.pow(root[i],k);
+					plussing.push(abc[k] * Math.pow(root[i],k));
+					
+				}
+
+
+				if(Math.round(gro.toFixed(3)) == 0.0000)
+				{
+					roots.push(root[i]);
+					console.log("корень = " + root[i]);
+					console.log("P(" + `${root[i]}` + ") = " + `${plussing}`);
+				}	
+			}
+			
+
+			console.log(roots);
+
+			answer = `${roots}`
+
+			showanswer();	
+
+		}
+	
+
+		function showanswer()
+		{
+			Alertnahui.style.visibility = "visible";
+			Alertnahui.textContent = answer;
+			abc =[];
+			pi = -1;
+			def = [];
+			roots = [];
+		}
+
+		function dis()
+		{
+			let a = ax.value;
+			let b = bx.value;
+			let c = cx.value;
+			let d = Math.pow(b,2) - 4 * a * c;
+			let x1 = (-b + Math.sqrt(d)) / (2*a)
+			let x2 = (-b - Math.sqrt(d)) / (2*a)
+			answer = "D=" + d + " || x1=" + x1 + " || x2=" + x2; 
+			console.log(answer);
+			let disk = "D = " + Math.pow(b,1) + " -  4*" + a + "c" 
+			let disk2 = "D = " +  String.valueOf(Math.pow(b,1)) + " - " + String.valueOf(4 * a * c);
+			showanswer();
+		}
+	
+		function po()
+			{
+			document.getElementById("refresh").style.opacity = "50%";
+
+			setTimeout(() => {
+				document.getElementById("refresh").style.opacity = "100%";
+			}, 250);
+			}
+
+		function nu40pognali()
+		{
+			document.getElementById("closesuka").style.visibility =  "visible";
+			hui.textContent = null;
+			chlen.textContent = null;
+			dildo.textContent = null;
+		}
+	
+		function auf()
+		{
+			document.getElementById("close").style.opacity = "50%";
+
+			setTimeout(() => {
+				document.getElementById("close").style.opacity = "100%";
+			}, 250);
+
+			dildo.textContent = null;
+			hui.textContent = null;
+			chlen.textContent = null;
+			Alertnahui.style.visibility = "hidden";
+			Alertnahui.textContent = null;
+			pi = 0;
+			
+		}
+
+
+	
+
+	</script>
+
+	<div id="math1" style ="left:150px" class="math">
+		<b>Квадратный корень</b>
+		<p>
+		ax^2 <input id="ax" type="text"></input><br>
+		bx <input id="bx" type="text"></input><br>
+		c <input id="cx" type="text"></input></p>
+		
+		<button onclick = "dis()">????</button>
+	</div>
+
+	<div id="math2" style ="left:500px" class="math">
+		<b>суммы и разности энных степеней</b>
+		<p>
+		A <input id="a" type="text"></input><br>
+		B <input id="b" type="text"></input><br>
+		An <input id="an" type="text"></input><br>
+		Bn <input id="bn" type="text"></input><br>
+		operation <input id="op" type="radio"></input></p>
+	</div>
+	<div id="math3" style ="left:850px" class="math">
+		<b>с MATEV</b>
+		<p>
+		Коэффициенты <input id="xn" type="text"></input><br></p>
+		<button style="bottom:17px; left:109px; position: relative;" onclick = "test()">calculate</button>
+	
+	<div id = "hui" class = "TextContent"><p>TextContent</p></div>
+	</div>
+	<div id="math4" style ="left:150px; top: 350px;" class="math">
+		<b>Горнер</b>
+		<p>
+		Коэффициенты <input id="gorner" type="text"></input><br>
+		X <input id="gornx" type="text"></input><br></p>
+		<button style="bottom:17px; left:109px; position: relative;" onclick = "Express(gorner.value, gornx.value)">calculate</button>
+		<div id = "chlen" class = "TextContent"><p>TextContent</p></div>
+	</div>
+
+	<div id="math5" style ="left:500px; top: 350px;" class="math">
+		<b>Статистика</b>
+		<p>
+		Числа        <input id="hr" type="text"></input><br></p>
+		<button style="bottom:17px; left:45px; position: relative;" onclick = "addingExpress()">adding</button><br>
+		<button style="bottom:17px; left:45px; position: relative;" onclick = "hf()">calculate</button>
+		<div id = "dildo" class = "TextContent"><p>TextContent</p></div>
+	</div>
+	<div id = "closesuka" class="closesuka"> 
+		<div id = "close" class="close" onclick = "auf()"></div>
+		<a href="statitica_reshalka.html"><div id="refresh" class="refresh" onclick="po()"></div></a>
+	</div> 
+	<div id="math6" style ="left:850px; top: 350px;" class="math">
+		<b>Velocity Huilocity</b>
+		<p>V0        
+		<input id="v0" type="text"></input>*10^<input type="text" id="v0s" style="width:25px;" value="0"></input><br></p>
+		<p>V1<input id="v1" type="text"></input>*10^<input type="text" id="v1s" style="width:25px;" value="0"></input><br></p>
+		<p>t      <input id="time" type="text">*10^</input><input type="text" id="times" value="0" style="width:25px;"></input><br></p>
+		<p>d   <input id="dis" type="text">*10^</input><input type="text" id="diss" value="0" style="width:25px;"></input><br></p>
+
+		<p>a    <input id="acce" type="text">*10</input>^<input type="text" id="acces" value="0" style="width:25px;"></input><br></p>
+		<input list="4to" id="chto" name="ice-cream-choice" />
+		<datalist id="4to">
+			<option value="acceleration">
+			<option value="v0">
+			<option value="v1">
+			<option value="d">
+			<option value="t">
+		</datalist>
+
+		<button style="bottom:17px; left:45px; position: relative;" onclick = "makaka()">calculate</button>
+		<div id = "dildo" class = "TextContent"><p>TextContent</p></div>
+	</div>
+	<div id = "closesuka" class="closesuka"> 
+		<div id = "close" class="close" onclick = "auf()"></div>
+		<a href="statitica_reshalka.html"><div id="refresh" class="refresh" onclick="po()"></div></a>
+	</div> 
+	<div id="Alertnahui" class="Alertnahui">
+	<p class="nu">SUKA OTSOSITE U SAILAUBEK NARIMANA TAK KAK ETO ON PRIDUMAL DANNYI SCRIPT</p> 
+	<p id="rad1">0</p>
+	<p id="rad2">0</p>
+	<p id="rad3">0</p>
+	<p id="rad4">0</p>
+
+	</div>
+	
+
+</body>
+<script>
+	function makaka()
+	{
+		let time = document.getElementById("time").value*(10**document.getElementById("times").value);
+		let v0 = document.getElementById("v0").value*(10**document.getElementById("v0s").value);
+		let v1 = document.getElementById("v1").value*(10**document.getElementById("v1s").value);
+		let acce = document.getElementById("acce").value*(10**document.getElementById("acces").value);
+		let dis = document.getElementById("dis").value*(10**document.getElementById("diss").value);
+
+		let chto = document.getElementById("chto").value;
+
+		if(chto == 'acceleration')
+		{
+			if(time==0 && dis != 0)
+			{
+				answer = ((v1+v0)*(v1-v0))/(dis*2);
+			}
+			if(time!=0)
+			{
+			answer = (v1-v0)/time;
+			}
+		}
+		if(chto == 'time')
+		{
+			answer = (v1-v0)/time;
+		}
+		if(chto == 't')
+		{
+			answer = (v1-v0)/time;
+		}
+		if(chto == 'd')
+		{
+			console.log(time);
+			console.log(acce);
+
+			console.log(v0);
+			answer = v0*time + acce*(time*time) * 0.5;
+		}
+		if(chto == 'v0')
+		{
+			if(v1!=0 && time != 0 && acce != 0)
+			{
+
+				answer = v1-acce*time;
+
+			}
+
+			if(dis != 0 && time == 0 && v1==0 && acce < 0) 
+			{
+				console.log(dis);
+				console.log(acce);
+				answer = (dis*2*acce*(-1))**0.5;
+			}
+		}
+		if(chto == 'v1')
+		{
+			answer = v0+acce*time;
+			
+		}
+
+		answer=toSc(answer);
+		showanswer();
+	}
+	function toSc(number)
+{ 
+	if(number*1 < 1001 && number*1 >= 1)
+	{
+		return number ;
+	}
+	if(number < 1)
+	{
+		let chaka = 0;
+		while(number < 1)
+		{
+			number = number * 10;
+			chaka++;
+		}
+		return `${number}` + " * 10^-" + (chaka);
+	}
+	let n = `${number}`; 
+	let chuka = 0;
+	console.log(number);
+	let i = 0;
+	while(n[i] != '.' && i != (n.length-1))
+	{
+		i = i + 1;
+		chuka++;
+	}
+	i = 0;
+	let n1 = n[0]+".";
+	while(i != 3 && i != (n.length-2))
+	{
+		n1 = n1 + n[i+1];
+		i++;
+	}
+	return n1 + " * 10^" + (chuka
+	);
+	   
+}
+</script>
+

@@ -1,0 +1,22 @@
+.Section{
+    width:100%;
+    height:40%;
+    padding: 0;
+    margin: 0;
+}
+.SecL{
+    width:50%;
+    height:100%;
+    background-color: mediumseagreen;
+    float:left;
+    padding: 0;
+    margin: 0;
+}
+.SecR{
+    width:50%;
+    height:100%;
+    float:right;
+    background-color: mediumseagreen;
+    padding: 0;
+    margin: 0;
+}

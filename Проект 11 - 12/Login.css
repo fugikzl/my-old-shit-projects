@@ -1,0 +1,19 @@
+.Login{
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: -98px;
+    position: absolute;
+    width: 196px;
+    height: 100px;
+    justify-content: center;
+    text-align: center;
+    border: 1px black solid;
+}
+
+  .Log{
+    padding: 14px 14px;
+  }
+  
+

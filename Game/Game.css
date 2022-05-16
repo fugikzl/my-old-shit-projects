@@ -1,0 +1,180 @@
+﻿body{
+    background-color: rgb(138, 128, 128);
+}  
+
+.Field{
+    border: black 2px solid;
+    background-color: lightskyblue;
+    height: 450px;
+    width: 800px;
+    left:50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Inventory{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    height:80px;
+    border: black 2px solid;
+    background-color: lightskyblue;
+    margin-top: 50px;
+}
+
+.SlotA
+{
+    width:80px;
+    height:80px;
+    background-color: rgb(228, 227, 227);
+    float: left;
+}
+
+.SlotB
+{
+    width:80px;
+    height:80px;
+    background-color: rgb(161, 174, 219);
+    float: left;
+}
+
+.weather{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    height:120px;
+    background: url("Day.png");
+    position: absolute;
+}
+
+.Bg{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    height:330px;
+    background: url("BgDay.png");
+    position: absolute;
+    margin-top:120px
+}
+
+.r1{
+    left: 235px;
+    right:239px;
+    top: -21px;
+    height:61px;
+    position: absolute;
+}
+
+.r2{
+    left: 211px;
+    right:213px;
+    top: 9px;
+    height:73px;
+    position: absolute;
+
+}
+
+.r3{
+    left: 175px;
+    right:179px;
+    top: 53px;
+    height:85px;
+    position: absolute;
+
+}
+
+.r4{
+    left: 137px;
+    right:136px;
+    top: 104px;
+    height:99px;
+    position: absolute;
+
+}
+
+.r5{
+    left: 76px;
+    right:79px;
+    top: 174px;
+    height:115px;
+    position: absolute;
+
+}
+
+.p1{
+  width:61px;
+  height:61px;
+  float: left;
+  position: absolute;
+  background-size: cover;
+  z-index: 9;
+
+}
+
+.p2{
+    width:73px;
+    height:73px;
+    float: left;
+    position: absolute;
+    background-size: cover;
+    z-index: 7;
+
+}
+
+.p3{
+    width:85px;
+    height:85px;
+    float: left;
+    position: absolute;
+    background-size: cover;
+    z-index: 5;
+
+}
+
+.p4{
+    width:99px;
+    height:99px;
+    float: left;
+    position: absolute;
+    background-size: cover;
+    z-index: 3;
+
+}
+
+.p5{
+    width:115px;
+    height:115px;
+    float: left;
+    position: absolute;
+    background-size: cover;
+    z-index: 1;
+
+}
+
+.slot{
+    margin-left: auto;
+    margin-right: auto;
+    width:50px;
+    height:16px;
+    background-color: rgb(189, 189, 189);
+    margin-top: 60px;
+    border: 1px black solid;
+    text-align: center;
+}
+
+.slotA:hover{
+    background-color: rgb(80, 80, 80);
+}
+
+.slotB:hover{
+    background-color: rgb(80, 80, 80);
+}
+
+body.pointer * { cursor: pointer; }
+        
+.ch{
+    width:100%;
+    height:30%;
+    position: absolute;
+    top:75%;
+    z-index: 11;
+}

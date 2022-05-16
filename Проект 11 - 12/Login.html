@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+	<meta charset = "UTF-8">
+	<title>Login - Школа 44</title>
+	<link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel = "stylesheet" href="Login.css">
+    <link rel = "stylesheet" href="main.css">
+	<script src = "login.js"> </script>
+</head>
+<body class="body">
+<script src="Login.js">
+
+</script>
+<script>
+    a = inp.value;
+    console.log("a");
+
+</script>
+<div class="up">
+	<a class="active" href="main.html">Home</a>
+	<a href="#news">Расписание</a>
+	<a href="contacts.html">Контакты</a>
+	<a href="about.html">Про нас	</a>
+	<a href = "Login.html" class="active" style="float:right">Вход в ИОС</a>
+</div>
+<div class="Login">
+    <b class="Log">ИИН/ЖНС<br>
+    <input id="inp"type="text"><br>
+    Пароль<br>
+    <input id="pa" type="text"><br>
+    <a ><button type="submit" onclick="var div = document.createElement('div'); div.style.background = 'white'; div.style.border = 'black 1px solid'; div.style.margin = '0 auto'; div.style.top = '50%'; var log = 'log '+ `${inp.value}`; var pa = 'pas '+ `${pa.value}`; div.appendChild(inp); div.appendChild(pa); document.body.appendChild(div); ">Войти</button><button>Регистрация</button></a><br></b>
+</div>
+</body>
